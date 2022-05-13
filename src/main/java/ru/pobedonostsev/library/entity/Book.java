@@ -51,4 +51,16 @@ public class Book {
 
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
+
+    public Book() {
+    }
+
+    public Book(Long id, String name, List<Genre> genres,
+                List<Author> authors, String description) {
+        this.id = id;
+        this.name = name;
+        this.genres = genres;
+        this.authors = authors;
+        this.description = description;
+    }
 }
