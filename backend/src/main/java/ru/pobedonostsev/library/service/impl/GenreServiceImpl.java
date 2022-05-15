@@ -2,16 +2,11 @@ package ru.pobedonostsev.library.service.impl;
 
 import java.util.List;
 
-import javax.persistence.GeneratedValue;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import ru.pobedonostsev.library.dto.AuthorDto;
 import ru.pobedonostsev.library.dto.GenreDto;
-import ru.pobedonostsev.library.entity.Author;
 import ru.pobedonostsev.library.entity.Genre;
 import ru.pobedonostsev.library.exception.GenreNotFoundException;
 import ru.pobedonostsev.library.exception.NoSuchGenreException;
