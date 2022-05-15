@@ -1,5 +1,4 @@
 import React from "react";
-import Loader from "react-loaders";
 
 class BooksList extends React.Component {
     constructor(props) {
@@ -12,32 +11,31 @@ class BooksList extends React.Component {
 
     componentDidMount() {
         fetch(
-            "https://jsonplaceholder.typicode.com/users")
+            "/api/books")
             .then((res) => res.json())
             .then((json) => {
                 this.setState({
                     items: json,
                     dataIsLoaded: true
                 });
+                console.log(json)
             })
+            .catch((e) => console.log(e));
     }
 
     render() {
-        const {dataIsLoaded, items} = this.state;
-        if (!dataIsLoaded) {
-            return (<Loader type={"pacman"} active={true}/>)
-        }
+        const {items} = this.state;
         return (
             <div className="App">
-                <p>
+                <ul>
                     {
                         items.map((item) => (
                             <li className="book-element" key={item.id}>
-                                Full Name: {item.name},
+                                {item.name},
                             </li>
                         ))
                     }
-                </p>
+                </ul>
             </div>
         );
     }
