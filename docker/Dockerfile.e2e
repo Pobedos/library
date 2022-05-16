@@ -1,5 +1,5 @@
 FROM selenium/standalone-chrome
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
-RUN sudo apt update && sudo apt install -y openjdk-17-jre
-CMD sudo ./mvnw '-Dtest=ru.pobedonostsev.library.*Test' test
+RUN sudo apt update && sudo apt install -y openjdk-17-jre && sudo ./gradlew --refresh-dependencies resolveDependencies
+CMD sudo ./gradlew --offline test

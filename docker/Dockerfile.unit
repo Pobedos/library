@@ -1,4 +1,5 @@
 FROM openjdk:17
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
-CMD ./mvnw '-Dtest=ru.pobedonostsev.library.unit.*Test' test
+RUN ./gradlew --refresh-dependencies resolveDependencies
+CMD ./gradlew test --tests "ru.pobedonostsev.library.unit.*Test"
